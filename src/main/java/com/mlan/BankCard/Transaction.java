@@ -22,7 +22,7 @@ public class Transaction {
         System.out.println(creditAccumulation.checkAllBalance());
 
 
-        System.out.println("\n---DEBIT---\n");
+        System.out.println("\n---DEBIT---");
 
         System.out.println(debAccumulation.checkAllBalance());
         debAccumulation.addBalance(15000);
@@ -34,6 +34,8 @@ public class Transaction {
         debAccumulation.addBalance(2000);
         System.out.println(debAccumulation.checkAllBalance());
         debAccumulation.addBalance(2000);
+        System.out.println(debAccumulation.checkAllBalance());
+        debAccumulation.pay(10000);
         System.out.println(debAccumulation.checkAllBalance());
     }
 }

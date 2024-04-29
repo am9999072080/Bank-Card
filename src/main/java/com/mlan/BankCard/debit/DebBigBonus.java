@@ -6,34 +6,29 @@ public class DebBigBonus extends DebCash {
     private final double potentialCash = 0.05;
     private final double bigAmount = 5000;
 
-    public DebBigBonus(double balance) {
-        super(balance);
-
-    }
-
     public DebBigBonus() {
     }
 
-
-    @Override
-    public String checkAllBalance() {
-        return "DEBIT BALANCE: " + getBalance() + " CASHBACK " + getBonus();
+    public DebBigBonus(double balance) throws RuntimeException {
+        super(balance);
     }
+
 
     @Override
     public boolean pay(double amount) {
+        super.pay(amount);
         double d;
-        if (!super.pay(amount)) {
-            if (amount >= bigAmount) {
-                d = amount * potentialCash;
-                setBonus(getBonus() + amount * potentialCash);
-                setBalance(getBalance() - amount);
-                //            addBalance(-amount);
-                System.out.println("Потенциальный кешбэк: " + d);
-                System.out.println("Бонусный баланс: " + getBonus());
-            }
+        if (amount >= 5000) {
+            d = amount * potentialCash;
+            System.out.print(", Потенциал кешбэк: " + d);
+            setBonus(getBonus() + d);
         }
         return true;
+    }
+
+    @Override
+    public String checkAllBalance() {
+        return "\nDEBIT BALANCE: " + getBalance() + " CASHBACK " + getBonus();
     }
 
     public double getPotentialCash() {

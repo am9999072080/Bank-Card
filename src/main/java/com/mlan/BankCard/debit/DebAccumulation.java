@@ -9,26 +9,23 @@ public class DebAccumulation extends DebBigBonus {
     public DebAccumulation() {
     }
 
-    public DebAccumulation(double balance) {
+    public DebAccumulation(double balance) throws RuntimeException {
         super(balance);
     }
-
 
     @Override
     public void addBalance(double amount) throws RuntimeException {
         super.addBalance(amount);
         double d = amount * percentAccumulation;
         accumulation = accumulation + d;
-        System.out.println("Накопление от пополнения: " + d);
-        System.out.println("Баланс накопления: " + accumulation);
-
-
+        System.out.print(", Накопление от пополнения: " + d);
+        System.out.print(", Баланс накопления: " + accumulation);
     }
 
     @Override
     public String checkAllBalance() {
 
-        return super.checkAllBalance() + " ACCUMULATION: " + accumulation;
+        return super.checkAllBalance() + " ACCUMULATION: " + accumulation + "\n";
     }
 
     public double getPercentAccumulation() {

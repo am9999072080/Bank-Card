@@ -3,8 +3,7 @@ package com.mlan.BankCard.debit;
 import com.mlan.BankCard.BankCard;
 
 public class DebitCard extends BankCard {
-
-    public DebitCard(double balance) {
+    public DebitCard(double balance) throws RuntimeException {
         super(balance);
     }
 
@@ -17,7 +16,7 @@ public class DebitCard extends BankCard {
             throw new RuntimeException("Введенное число должен быть > 0");
         }
         setBalance(getBalance() + amount);
-        System.out.println("Пополнения, DEBIT: " + amount);
+        System.out.print("ПОПОЛНЕНИЕ: " + amount);
     }
 
     @Override

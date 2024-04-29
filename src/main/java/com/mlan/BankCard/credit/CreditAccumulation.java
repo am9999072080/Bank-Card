@@ -6,25 +6,25 @@ public class CreditAccumulation extends CredBigBonus {
     private final double percentAccumulation = 0.005;
     private double accumulation;
 
-    public CreditAccumulation(double balance) {
-        super(balance);
+    public CreditAccumulation() {
     }
 
-    public CreditAccumulation() {
+    public CreditAccumulation(double balance) throws RuntimeException {
+        super(balance);
     }
 
     @Override
     public void addBalance(double amount) {
+        super.addBalance(amount);
         double d = amount * percentAccumulation;
         accumulation = accumulation + d;
-        System.out.println("Накопление от пополнения: " + d);
-        System.out.println("Баланс накопления: " + accumulation);
-        super.addBalance(amount);
+        System.out.print(", Накопление от пополнения: " + d);
+        System.out.print(", Баланс накопления: " + accumulation);
     }
 
     @Override
     public String checkAllBalance() {
-        return super.checkAllBalance() + " ACCUMULATION: " + accumulation;
+        return super.checkAllBalance() + " ACCUMULATION: " + accumulation + "\n";
     }
 
     public double getPercentAccumulation() {

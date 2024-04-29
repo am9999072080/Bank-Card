@@ -11,7 +11,7 @@ public abstract class BankCard {
      *
      * @param balance
      */
-    public BankCard(double balance) {
+    public BankCard(double balance) throws RuntimeException {
         if (balance < 0) {
             throw new RuntimeException("Баланс не может быть меньше 0");
 

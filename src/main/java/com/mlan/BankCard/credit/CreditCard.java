@@ -12,9 +12,8 @@ public class CreditCard extends BankCard {
     public CreditCard() {
     }
 
-    public CreditCard(double balance) {
+    public CreditCard(double balance) throws RuntimeException {
         super(balance);
-
     }
 
     @Override
@@ -25,13 +24,14 @@ public class CreditCard extends BankCard {
         double d;
         if (creditBalance + amount <= creditLimit) {
             creditBalance = creditBalance + amount;
-            System.out.println("Пополнения, CREDIT: " + amount);
+            System.out.print("ПОПОЛНЕНИЕ: " + amount + ", DEB: 0.0, CRED: " + amount);
         } else {
             d = creditBalance + amount - creditLimit;
             creditBalance = creditLimit;
-            System.out.println("Кредитный лимит составляет " + creditLimit);
+
             setBalance(getBalance() + d);
-            System.out.println("Пополнения, DEBIT: " + d);
+            System.out.print("ПОПОЛНЕНИЕ: " + amount + ", DEB: " + d + ", CRED: " + (amount - d));
+            System.out.print(", Остаток кредитных средств " + creditLimit);
         }
     }
 
@@ -47,13 +47,14 @@ public class CreditCard extends BankCard {
         if (!(getBalance() + creditBalance < amount)) {
             if (getBalance() >= amount) {
                 setBalance(getBalance() - amount);
-                System.out.println("Оплата, DEBIT: " + -amount);
+                System.out.print("ПОКУПКА: " + -amount + ", DEB: " + -amount + ", CRED: 0.0");
             } else if (amount <= getBalance() + creditBalance) {
                 d = amount - getBalance();
-                System.out.println("Оплата, DEBIT: " + -getBalance());
+                System.out.print("ПОКУПКА: " + -amount);
+                System.out.print(", DEB: " + -getBalance());
                 setBalance(0);
                 creditBalance = creditBalance - d;
-                System.out.println("Оплата, CREDIT: " + -d);
+                System.out.print(", CRED: " + -d);
             }
         } else {
             throw new RuntimeException("Недостаточно средств!");
@@ -63,7 +64,7 @@ public class CreditCard extends BankCard {
 
     @Override
     public String checkAllBalance() {
-        return "DEBIT: " + getBalance() + " CREDIT: " + creditBalance;
+        return "\nDEBIT: " + getBalance() + " CREDIT: " + creditBalance;
     }
 
 
@@ -75,9 +76,9 @@ public class CreditCard extends BankCard {
         return creditBalance;
     }
 
-    public void setCreditBalance(double creditBalance) {
-        this.creditBalance = creditBalance;
-    }
+//    public void setCreditBalance(double creditBalance) {
+//        this.creditBalance = creditBalance;
+//    }
 
     @Override
     public boolean equals(Object o) {
@@ -85,7 +86,8 @@ public class CreditCard extends BankCard {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         CreditCard that = (CreditCard) o;
-        return Double.compare(creditLimit, that.creditLimit) == 0 && Double.compare(creditBalance, that.creditBalance) == 0;
+        boolean b = Double.compare(creditLimit, that.creditLimit) == 0 && Double.compare(creditBalance, that.creditBalance) == 0;
+        return b;
     }
 
     @Override

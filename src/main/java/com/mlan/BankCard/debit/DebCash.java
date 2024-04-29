@@ -6,13 +6,13 @@ public class DebCash extends DebitCard {
     private final double bonusForBuy = 0.01;
     private double bonus;
 
+    public DebCash() {
+    }
 
-    public DebCash(double balance) {
+    public DebCash(double balance) throws RuntimeException {
         super(balance);
     }
 
-    public DebCash() {
-    }
 
     @Override
     public boolean pay(double amount) throws RuntimeException {
@@ -22,10 +22,10 @@ public class DebCash extends DebitCard {
                 d = amount * bonusForBuy;
                 bonus += d;
                 setBalance(getBalance() - amount);
-                System.out.println("Покупка, DEBIT: " + -amount);
+                System.out.print("ПОКУПКА: " + -amount);
 
-                System.out.println("Кешбэк: " + d);
-                System.out.println("Бонусный баланс: " + bonus);
+                System.out.print(", Кешбэк: " + d);
+                System.out.print(", Бонусный баланс: " + bonus);
             } else {
                 throw new RuntimeException("Недостаточно средств!");
             }

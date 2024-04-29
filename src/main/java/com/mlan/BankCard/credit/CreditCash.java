@@ -6,9 +6,8 @@ public class CreditCash extends CreditCard {
     private final double bonusForBuy = 0.01;
     private double bonus;
 
-    public CreditCash(double balance) {
+    public CreditCash(double balance) throws RuntimeException {
         super(balance);
-
     }
 
     public CreditCash() {
@@ -20,8 +19,8 @@ public class CreditCash extends CreditCard {
         if (super.pay(amount)) {
             d = amount * bonusForBuy;
             bonus += d;
-            System.out.println("Кешбэк: " + d);
-            System.out.println("Бонусный баланс: " + bonus);
+            System.out.print(", Кешбэк: " + d);
+            System.out.print(", Бонусный баланс: " + bonus);
         } else {
             return super.pay(amount);
         }

@@ -6,22 +6,29 @@ public class CredBigBonus extends CreditCash {
     private final double potentialCash = 0.05;
     private final double maxAmount = 5000;
 
-    public CredBigBonus(double balance) {
-        super(balance);
+    public CredBigBonus() {
     }
 
-    public CredBigBonus() {
+
+    public CredBigBonus(double balance) throws RuntimeException {
+        super(balance);
     }
 
     @Override
     public boolean pay(double amount) {
+        super.pay(amount);
         double d;
         if (amount >= 5000) {
             d = amount * potentialCash;
             setBonus(getBonus() + d);
-            System.out.println("Потенциал кешбэк: " + d);
+            System.out.print(", Потенциал кешбэк: " + d);
         }
-        return super.pay(amount);
+        return true;
+    }
+
+    @Override
+    public String checkAllBalance() {
+        return super.checkAllBalance() + " CASHBACK " + getBonus();
     }
 
     public double getPotentialCash() {
@@ -30,11 +37,6 @@ public class CredBigBonus extends CreditCash {
 
     public double getMaxAmount() {
         return maxAmount;
-    }
-
-    @Override
-    public String checkAllBalance() {
-        return super.checkAllBalance() + " CASHBACK " + getBonus();
     }
 
     @Override
