@@ -76,9 +76,6 @@ public class CreditCard extends BankCard {
         return creditBalance;
     }
 
-//    public void setCreditBalance(double creditBalance) {
-//        this.creditBalance = creditBalance;
-//    }
 
     @Override
     public boolean equals(Object o) {
