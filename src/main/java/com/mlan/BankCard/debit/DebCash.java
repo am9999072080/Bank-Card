@@ -24,8 +24,7 @@ public class DebCash extends DebitCard {
                 setBalance(getBalance() - amount);
                 System.out.print("ПОКУПКА: " + -amount);
 
-                System.out.print(", Кешбэк: " + d);
-                System.out.print(", Бонусный баланс: " + bonus);
+                System.out.print(", Базовый кешбэк: " + d);
             } else {
                 throw new RuntimeException("Недостаточно средств!");
             }

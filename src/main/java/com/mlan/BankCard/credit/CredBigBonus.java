@@ -23,6 +23,7 @@ public class CredBigBonus extends CreditCash {
             setBonus(getBonus() + d);
             System.out.print(", Потенциал кешбэк: " + d);
         }
+        System.out.print(", Кешбэк всего: " + getBonus());
         return true;
     }
 

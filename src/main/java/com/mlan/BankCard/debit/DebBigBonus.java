@@ -22,7 +22,9 @@ public class DebBigBonus extends DebCash {
             d = amount * potentialCash;
             System.out.print(", Потенциал кешбэк: " + d);
             setBonus(getBonus() + d);
+
         }
+        System.out.print(", Кешбэк всего: " + getBonus());
         return true;
     }
 

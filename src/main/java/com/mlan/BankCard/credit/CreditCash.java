@@ -19,8 +19,7 @@ public class CreditCash extends CreditCard {
         if (super.pay(amount)) {
             d = amount * bonusForBuy;
             bonus += d;
-            System.out.print(", Кешбэк: " + d);
-            System.out.print(", Бонусный баланс: " + bonus);
+            System.out.print(", Базовый кешбэк: " + d);
         } else {
             return super.pay(amount);
         }

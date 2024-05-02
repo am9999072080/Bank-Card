@@ -18,8 +18,8 @@ public class CreditAccumulation extends CredBigBonus {
         super.addBalance(amount);
         double d = amount * percentAccumulation;
         accumulation = accumulation + d;
-        System.out.print(", Накопление от пополнения: " + d);
-        System.out.print(", Баланс накопления: " + accumulation);
+        System.out.print(", Начислено бонусов: " + d);
+        System.out.print(", Всего бонусов: " + accumulation);
     }
 
     @Override

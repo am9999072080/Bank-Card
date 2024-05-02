@@ -47,10 +47,10 @@ public class CreditCard extends BankCard {
         if (!(getBalance() + creditBalance < amount)) {
             if (getBalance() >= amount) {
                 setBalance(getBalance() - amount);
-                System.out.print("ПОКУПКА: " + -amount + ", DEB: " + -amount + ", CRED: 0.0");
+                System.out.print("ПОКУПКА: " + amount + ", DEB: " + -amount + ", CRED: -0.0");
             } else if (amount <= getBalance() + creditBalance) {
                 d = amount - getBalance();
-                System.out.print("ПОКУПКА: " + -amount);
+                System.out.print("ПОКУПКА: " + amount);
                 System.out.print(", DEB: " + -getBalance());
                 setBalance(0);
                 creditBalance = creditBalance - d;
