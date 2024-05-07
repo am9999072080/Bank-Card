@@ -1,13 +1,14 @@
 package com.mlan.BankCard;
 
 
+import com.mlan.BankCard.additionally.exceptions.model.Card;
 import com.mlan.BankCard.credit.CreditAccumulation;
 import com.mlan.BankCard.debit.DebAccumulation;
 
 public class Transaction {
     public static void main(String[] args) {
-        BankCard debAccumulation = new DebAccumulation();
-        BankCard creditAccumulation = new CreditAccumulation();
+        BankCard debAccumulation = new DebAccumulation(new Card());
+        BankCard creditAccumulation = new CreditAccumulation(new Card());
 
         System.out.println("---CREDIT-DEBIT---");
         System.out.println(creditAccumulation.checkAllBalance());

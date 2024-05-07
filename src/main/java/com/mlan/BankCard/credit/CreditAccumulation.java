@@ -1,16 +1,20 @@
 package com.mlan.BankCard.credit;
 
+import com.mlan.BankCard.additionally.exceptions.model.Card;
+
 import java.util.Objects;
 
 public class CreditAccumulation extends CredBigBonus {
     private final double percentAccumulation = 0.005;
     private double accumulation;
 
-    public CreditAccumulation() {
+    public CreditAccumulation(Card card) throws RuntimeException {
+        super(card);
     }
 
-    public CreditAccumulation(double balance) throws RuntimeException {
-        super(balance);
+    public CreditAccumulation(Card card, double accumulation) throws RuntimeException {
+        super(card);
+        this.accumulation = accumulation;
     }
 
     @Override

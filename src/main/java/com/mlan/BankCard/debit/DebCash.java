@@ -1,32 +1,30 @@
 package com.mlan.BankCard.debit;
 
+import com.mlan.BankCard.additionally.exceptions.model.Card;
+
 import java.util.Objects;
 
 public class DebCash extends DebitCard {
     private final double bonusForBuy = 0.01;
-    private double bonus;
 
-    public DebCash() {
+
+    public DebCash(Card card) {
+        super(card);
     }
-
-    public DebCash(double balance) throws RuntimeException {
-        super(balance);
-    }
-
 
     @Override
-    public boolean pay(double amount) throws RuntimeException {
+    public boolean pay(double amount) throws NullPointerException {
         double d;
         if (super.pay(amount)) {
-            if (getBalance() >= amount) {
+            if (getCard().getBalance() >= amount) {
                 d = amount * bonusForBuy;
-                bonus += d;
-                setBalance(getBalance() - amount);
+                getCard().setBonus(getCard().getBonus() + d);
+                getCard().setBalance(getCard().getBalance() - amount);
                 System.out.print("ПОКУПКА: " + -amount);
 
                 System.out.print(", Базовый кешбэк: " + d);
             } else {
-                throw new RuntimeException("Недостаточно средств!");
+                throw new NullPointerException("Недостаточно средств!");
             }
         }
         return super.pay(amount);
@@ -37,25 +35,16 @@ public class DebCash extends DebitCard {
         return bonusForBuy;
     }
 
-    public double getBonus() {
-        return bonus;
-    }
-
-    public void setBonus(double bonus) {
-        this.bonus = bonus;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
         DebCash debCash = (DebCash) o;
-        return Double.compare(bonusForBuy, debCash.bonusForBuy) == 0 && Double.compare(bonus, debCash.bonus) == 0;
+        return Double.compare(bonusForBuy, debCash.bonusForBuy) == 0;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), bonusForBuy, bonus);
+        return Objects.hash(bonusForBuy);
     }
 }

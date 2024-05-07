@@ -1,18 +1,17 @@
 package com.mlan.BankCard.debit;
 
+import com.mlan.BankCard.additionally.exceptions.model.Card;
+
 import java.util.Objects;
 
 public class DebBigBonus extends DebCash {
     private final double potentialCash = 0.05;
     private final double bigAmount = 5000;
 
-    public DebBigBonus() {
-    }
 
-    public DebBigBonus(double balance) throws RuntimeException {
-        super(balance);
+    public DebBigBonus(Card card) {
+        super(card);
     }
-
 
     @Override
     public boolean pay(double amount) {
@@ -21,16 +20,15 @@ public class DebBigBonus extends DebCash {
         if (amount >= 5000) {
             d = amount * potentialCash;
             System.out.print(", Потенциал кешбэк: " + d);
-            setBonus(getBonus() + d);
-
+            getCard().setBonus(getCard().getBonus() + d);
         }
-        System.out.print(", Кешбэк всего: " + getBonus());
+        System.out.print(", Кешбэк всего: " + getCard().getBonus());
         return true;
     }
 
     @Override
     public String checkAllBalance() {
-        return "\nDEBIT BALANCE: " + getBalance() + " CASHBACK " + getBonus();
+        return "\nDEBIT BALANCE: " + getCard().getBalance() + " CASHBACK " + getCard().getBonus();
     }
 
     public double getPotentialCash() {

@@ -1,16 +1,20 @@
 package com.mlan.BankCard.credit;
 
+import com.mlan.BankCard.additionally.exceptions.model.Card;
+
 import java.util.Objects;
 
 public class CreditCash extends CreditCard {
     private final double bonusForBuy = 0.01;
     private double bonus;
 
-    public CreditCash(double balance) throws RuntimeException {
-        super(balance);
+    public CreditCash(Card card) throws RuntimeException {
+        super(card);
     }
 
-    public CreditCash() {
+    public CreditCash(Card card, double bonus) throws RuntimeException {
+        super(card);
+        this.bonus = bonus;
     }
 
     @Override

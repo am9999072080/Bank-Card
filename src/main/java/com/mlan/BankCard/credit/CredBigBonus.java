@@ -1,17 +1,16 @@
 package com.mlan.BankCard.credit;
 
+import com.mlan.BankCard.additionally.exceptions.model.Card;
+
 import java.util.Objects;
 
 public class CredBigBonus extends CreditCash {
     private final double potentialCash = 0.05;
     private final double maxAmount = 5000;
 
-    public CredBigBonus() {
-    }
 
-
-    public CredBigBonus(double balance) throws RuntimeException {
-        super(balance);
+    public CredBigBonus(Card card) throws RuntimeException {
+        super(card);
     }
 
     @Override

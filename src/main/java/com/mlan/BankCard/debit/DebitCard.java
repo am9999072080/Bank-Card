@@ -1,13 +1,11 @@
 package com.mlan.BankCard.debit;
 
 import com.mlan.BankCard.BankCard;
+import com.mlan.BankCard.additionally.exceptions.model.Card;
 
 public class DebitCard extends BankCard {
-    public DebitCard(double balance) throws RuntimeException {
-        super(balance);
-    }
-
-    public DebitCard() {
+    public DebitCard(Card card) {
+        super(card);
     }
 
     @Override
@@ -15,13 +13,13 @@ public class DebitCard extends BankCard {
         if (amount <= 0) {
             throw new RuntimeException("Введенное число должен быть > 0");
         }
-        setBalance(getBalance() + amount);
+        getCard().setBalance(getCard().getBalance() + amount);
+
         System.out.print("ПОПОЛНЕНИЕ: " + amount);
     }
 
     @Override
     public double checkBalance() {
-        System.out.print("Доступно, DEBIT: ");
-        return getBalance();
+        return getCard().getBalance();
     }
 }

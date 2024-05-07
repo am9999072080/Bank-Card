@@ -1,26 +1,15 @@
 package com.mlan.BankCard;
 
+import com.mlan.BankCard.additionally.exceptions.model.Card;
+
 import java.util.Objects;
 
 public abstract class BankCard {
-    private double balance;
+    private final Card card;
 
 
-    /**
-     * Checking balance
-     *
-     * @param balance
-     */
-    public BankCard(double balance) throws RuntimeException {
-        if (balance < 0) {
-            throw new RuntimeException("Баланс не может быть меньше 0");
-
-        } else {
-            this.balance = balance;
-        }
-    }
-
-    public BankCard() {
+    public BankCard(Card card) {
+        this.card = card;
     }
 
     /**
@@ -42,8 +31,8 @@ public abstract class BankCard {
      * @return true / false
      */
     public boolean pay(double amount) throws RuntimeException {
-        if (amount <= 0) {
-            throw new RuntimeException("Введенное число должен быть > 0");
+        if (amount <= 0 || !Double.isFinite(amount)) {
+            throw new NumberFormatException("Введенное число должен быть > 0");
         }
         return true;
     }
@@ -54,27 +43,10 @@ public abstract class BankCard {
      * @return balance debit, balance credit
      */
     public String checkAllBalance() {
-        return balance + "";
+        return card.getBalance() + "";
     }
 
-    public double getBalance() {
-        return balance;
-    }
-
-    public void setBalance(double balance) {
-        this.balance = balance;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        BankCard bankCard = (BankCard) o;
-        return Double.compare(balance, bankCard.balance) == 0;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(balance);
+    public Card getCard() {
+        return card;
     }
 }
