@@ -30,7 +30,6 @@ public class DebCash extends DebitCard {
         return super.pay(amount);
     }
 
-
     public double getBonusForBuy() {
         return bonusForBuy;
     }

@@ -49,4 +49,17 @@ public abstract class BankCard {
     public Card getCard() {
         return card;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BankCard bankCard = (BankCard) o;
+        return Objects.equals(card, bankCard.card);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(card);
+    }
 }

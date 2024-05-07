@@ -4,6 +4,7 @@ import com.mlan.BankCard.additionally.exceptions.model.Card;
 
 import java.util.Objects;
 
+
 public class DebAccumulation extends DebBigBonus {
     private final double percentAccumulation = 0.005;
 
@@ -24,5 +25,23 @@ public class DebAccumulation extends DebBigBonus {
     public String checkAllBalance() {
 
         return super.checkAllBalance() + " ACCUMULATION: " + getCard().getAccumulation() + "\n";
+    }
+
+    public double getPercentAccumulation() {
+        return percentAccumulation;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        DebAccumulation that = (DebAccumulation) o;
+        return Double.compare(percentAccumulation, that.percentAccumulation) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), percentAccumulation);
     }
 }

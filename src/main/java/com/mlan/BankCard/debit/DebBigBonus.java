@@ -8,7 +8,6 @@ public class DebBigBonus extends DebCash {
     private final double potentialCash = 0.05;
     private final double bigAmount = 5000;
 
-
     public DebBigBonus(Card card) {
         super(card);
     }

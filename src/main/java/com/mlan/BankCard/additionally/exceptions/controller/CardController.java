@@ -1,7 +1,7 @@
 package com.mlan.BankCard.additionally.exceptions.controller;
 
 
-import com.mlan.BankCard.additionally.exceptions.service.CardService;
+import com.mlan.BankCard.additionally.exceptions.service.impl.CardServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @RequestMapping("/cards")
 public class CardController {
-    private final CardService service;
+    private final CardServiceImpl service;
 
 
     @PutMapping("/topUp ")

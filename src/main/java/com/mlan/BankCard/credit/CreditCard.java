@@ -2,8 +2,6 @@ package com.mlan.BankCard.credit;
 
 import com.mlan.BankCard.BankCard;
 import com.mlan.BankCard.additionally.exceptions.model.Card;
-import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
 
 import java.util.Objects;
 
@@ -68,28 +66,28 @@ public class CreditCard extends BankCard {
         return "\nDEBIT: " + getCard().getBalance() + " CREDIT: " + creditBalance;
     }
 
+    public double getCreditLimit() {
+        return creditLimit;
+    }
 
-//    public double getCreditLimit() {
-//        return creditLimit;
-//    }
-//
-//    public double getCreditBalance() {
-//        return creditBalance;
-//    }
-//
-//
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        if (!super.equals(o)) return false;
-//        CreditCard that = (CreditCard) o;
-//        boolean b = Double.compare(creditLimit, that.creditLimit) == 0 && Double.compare(creditBalance, that.creditBalance) == 0;
-//        return b;
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(super.hashCode(), creditLimit, creditBalance);
-//    }
+    public double getCreditBalance() {
+        return creditBalance;
+    }
+
+    public void setCreditBalance(double creditBalance) {
+        this.creditBalance = creditBalance;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CreditCard that = (CreditCard) o;
+        return Double.compare(creditLimit, that.creditLimit) == 0 && Double.compare(creditBalance, that.creditBalance) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(creditLimit, creditBalance);
+    }
 }
