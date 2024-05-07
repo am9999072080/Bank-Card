@@ -4,6 +4,7 @@ package com.mlan.BankCard.additionally.exceptions.service;
 import com.mlan.BankCard.BankCard;
 import com.mlan.BankCard.additionally.exceptions.model.Card;
 
+import com.mlan.BankCard.credit.CreditCard;
 import com.mlan.BankCard.debit.DebAccumulation;
 
 import lombok.RequiredArgsConstructor;
@@ -16,7 +17,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class CardService {
 
-    private final BankCard card = new DebAccumulation(new Card());
+    private final BankCard card = new CreditCard(new Card());
 
     public double add(double amount) {
 

@@ -38,7 +38,7 @@ public class CreditCard extends BankCard {
 
     @Override
     public double checkBalance() {
-        System.out.print("Доступно, D/C: ");
+        System.out.print(" ");
         return getCard().getBalance() + creditBalance;
     }
 
