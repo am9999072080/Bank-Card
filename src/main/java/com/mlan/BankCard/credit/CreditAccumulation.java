@@ -28,7 +28,7 @@ public class CreditAccumulation extends CredBigBonus {
 
     @Override
     public String checkAllBalance() {
-        return super.checkAllBalance() + " ACCUMULATION: " + accumulation + "\n";
+        return super.checkAllBalance() + " ACCUMULATION: " + String.format("%.2f", accumulation) + "\n";
     }
 
     public double getPercentAccumulation() {

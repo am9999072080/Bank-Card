@@ -63,7 +63,7 @@ public class CreditCard extends BankCard {
 
     @Override
     public String checkAllBalance() {
-        return "\nDEBIT: " + getCard().getBalance() + " CREDIT: " + creditBalance;
+        return "\nDEBIT: " + String.format("%.2f", getCard().getBalance()) + " CREDIT: " + String.format("%.2f", creditBalance);
     }
 
     public double getCreditLimit() {

@@ -24,7 +24,7 @@ public class DebAccumulation extends DebBigBonus {
     @Override
     public String checkAllBalance() {
 
-        return super.checkAllBalance() + " ACCUMULATION: " + getCard().getAccumulation() + "\n";
+        return super.checkAllBalance() + " ACCUMULATION: " + String.format("%.2f", getCard().getAccumulation()) + "\n";
     }
 
     public double getPercentAccumulation() {

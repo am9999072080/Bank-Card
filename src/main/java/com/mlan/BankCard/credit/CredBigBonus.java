@@ -28,7 +28,7 @@ public class CredBigBonus extends CreditCash {
 
     @Override
     public String checkAllBalance() {
-        return super.checkAllBalance() + " CASHBACK " + getBonus();
+        return super.checkAllBalance() + " CASHBACK " + String.format("%.2f", getBonus());
     }
 
     public double getPotentialCash() {
