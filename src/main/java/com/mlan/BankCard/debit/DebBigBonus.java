@@ -30,7 +30,7 @@ public class DebBigBonus extends DebCash {
 
     @Override
     public String checkAllBalance() {
-        return "\nDEBIT BALANCE: " + getBalance() + " CASHBACK " + getBonus();
+        return "\nDEBIT BALANCE: " + String.format("%.2f", getBalance()) + " CASHBACK " + String.format("%.2f", getBonus());
     }
 
     public double getPotentialCash() {

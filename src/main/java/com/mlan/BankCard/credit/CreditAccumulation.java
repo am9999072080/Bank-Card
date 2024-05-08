@@ -5,6 +5,7 @@ import java.util.Objects;
 public class CreditAccumulation extends CredBigBonus {
     private final double percentAccumulation = 0.005;
     private double accumulation;
+    String strAccumulation = String.format("%.2f", accumulation);
 
     public CreditAccumulation() {
     }
@@ -24,7 +25,7 @@ public class CreditAccumulation extends CredBigBonus {
 
     @Override
     public String checkAllBalance() {
-        return super.checkAllBalance() + " ACCUMULATION: " + accumulation + "\n";
+        return super.checkAllBalance() + " ACCUMULATION: " + String.format("%.2f", accumulation) + "\n";
     }
 
     public double getPercentAccumulation() {
