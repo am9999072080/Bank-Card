@@ -1,6 +1,6 @@
 package com.mlan.BankCard.debit;
 
-import com.mlan.BankCard.additionally.exceptions.model.Card;
+import com.mlan.BankCard.model.Card;
 
 import java.util.Objects;
 

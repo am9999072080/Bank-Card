@@ -1,7 +1,7 @@
 package com.mlan.BankCard;
 
 
-import com.mlan.BankCard.additionally.exceptions.model.Card;
+import com.mlan.BankCard.model.Card;
 import com.mlan.BankCard.credit.CreditAccumulation;
 import com.mlan.BankCard.debit.DebAccumulation;
 

@@ -2,7 +2,7 @@ package com.mlan.BankCard.debit;
 
 import com.mlan.BankCard.BankCard;
 
-import com.mlan.BankCard.additionally.exceptions.model.Card;
+import com.mlan.BankCard.model.Card;
 
 public class DebitCard extends BankCard {
     public DebitCard(Card card) {

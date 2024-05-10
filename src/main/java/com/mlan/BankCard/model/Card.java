@@ -1,4 +1,4 @@
-package com.mlan.BankCard.additionally.exceptions.model;
+package com.mlan.BankCard.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

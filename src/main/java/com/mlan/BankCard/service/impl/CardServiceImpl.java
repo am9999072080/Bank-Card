@@ -1,14 +1,12 @@
-package com.mlan.BankCard.additionally.exceptions.service.impl;
+package com.mlan.BankCard.service.impl;
 
 
 import com.mlan.BankCard.BankCard;
-import com.mlan.BankCard.additionally.exceptions.model.Card;
+import com.mlan.BankCard.model.Card;
 
-import com.mlan.BankCard.additionally.exceptions.service.CardService;
 import com.mlan.BankCard.credit.CreditAccumulation;
-import com.mlan.BankCard.credit.CreditCard;
 
-import com.mlan.BankCard.credit.CreditCash;
+import com.mlan.BankCard.service.CardService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.mlan.BankCard.additionally.exceptions.service;
+package com.mlan.BankCard.service;
 
 public interface CardService {
     double add(double amount);
